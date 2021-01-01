@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    container_name: "go-app"
+    image: golang:1.6.1-alpine
+    volumes:
+       - .:/go/src/app
+    working_dir: /go/src/app
