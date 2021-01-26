@@ -1,15 +1,3 @@
-/*
-	A SLICE HOLDS VALUES OF THE SAME TYPE. 
-	
-	If I wanted to store all of my favorite numbers,
-	 I would use a slice of int. If I wanted to store all of my favorite foods, 
-	 I would use a slice of string. We will use a COMPOSITE LITERAL to create a slice.
-	  A composite literal is created by having the TYPE followed by CURLY BRACES 
-	  and then putting the appropriate values in the curly brace area.
-
-	  https://golang.org/ref/spec#Slice_types
-*/
-
 package main 
 
 import "fmt"
@@ -34,8 +22,6 @@ func main()  {
 
 	/*
 	APPEND
-	To append values to a slice, we use the special built in function append.
-	 This function returns a slice of the same type. 
 	*/
 
 	x = append(x, 43, 44, 88, 21, 46)
@@ -47,8 +33,6 @@ func main()  {
 
 	/*
 	Slice - slicing a slice
-	We can slice a slice which means that we can cut parts of the slice away.
-	We do this with the colon operator.
 	*/
 	fmt.Println("=============")
 	fmt.Println(x[1:])
@@ -57,8 +41,6 @@ func main()  {
 
 	/*
 	Slice - deleting from a slice
-	We can delete from a slice using both append and slicing. 
-	This is a wonderful and elegant example of why Go is great and how Go provides ease of programming.
 	*/
 
 	fmt.Println("=============")
@@ -70,13 +52,6 @@ func main()  {
 
 	/*
 		Slice - make
-		Slices are built on top of arrays. A slice is dynamic in that it will grow in size. 
-		The underlying array, however, does not grow in size. 
-		When we create a slice, we can use the built in function make to specify 
-		how large our slice should be and also how large the underlying array should be. 
-		This can enhance performance a little bit.
-			make([]T, length, capacity) 
-			make([]int, 50, 100) 
 	*/
 	
 	fmt.Println("=============")
@@ -95,8 +70,6 @@ func main()  {
 
 	/*
 	Slice - multi-dimensional slice
-	A multi-dimensional slice is like a spreadsheet. You can have a slice of a slice of some type.
-	Does that sound confusing? Watch this video and it will all be clarified.
 	*/
 	fmt.Println("=============")
 	jb := []string{"James", "Bond", "Chocolate", "martini"}
