@@ -1,16 +1,3 @@
-/*
-Syntax
-	func (receiver) identifier(parameters) (returns) { code }
-	know the difference between parameters and arguments
-		- we define our func with parameters (if any)
-		- we call our func and pass in arguments (in any)
-	Everything in Go is PASS BY VALUE
-	purpose of functions
-		- abstract code
-		- code reusability
-
-*/
-
 package main
 
 import "fmt"
@@ -71,9 +58,6 @@ func foo3() (string, int) {
 
 /*
 Variadic parameter
-	You can create a func which takes an unlimited number of arguments.
-	When you do this, this is known as a “variadic parameter.” When use the lexical element 
-	operator “...T” to signify a variadic parameter (there “T” represents some type).
 */
 
 func multiplication(x ...int) int {
@@ -89,14 +73,7 @@ func multiplication(x ...int) int {
 }
 
 /*
-
 Defer
-	A "defer" statement invokes a function whose execution is deferred to the moment 
-	the surrounding function returns, either because the surrounding function executed a return statement,
- 	reached the end of its function body, or because the corresponding goroutine is panicking.
-	
-	 personal anecdote: head down, ox plowing field; doing the work
-
 */
 
 func foo4() {
@@ -105,8 +82,6 @@ func foo4() {
 
 /*
 Methods
-	A method is nothing more than a FUNC attached to a TYPE. When you attach a func to a type
-	it is a method of that type. You attach a func to a type with a RECEIVER.
 */
 
 type person struct {
