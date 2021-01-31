@@ -1,13 +1,3 @@
-/*
-Struct
-A struct is an composite data type. (composite data types, aka, aggregate data types, aka, complex data types). 
-Struct allow us to compose together values of different types.
-
-All properties in struct must be initialized 
-
-https://golang.org/ref/spec#Struct_types
-*/
-
 
 package main
 
