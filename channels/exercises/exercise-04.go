@@ -11,7 +11,6 @@ func main() {
 
 	receive(c)
 
-	fmt.Println("about to exit")
 }
 
 func receive(c <-chan int)  {

@@ -11,8 +11,6 @@ func main() {
 	c := gen(q)
 
 	receive(c, q)
-
-	fmt.Println("about to exit")
 }
 
 func receive(c, q <-chan int)  {
