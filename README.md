@@ -11,5 +11,4 @@ Purpose of this repository is learning and practice go programming language.
 
 ## Environment
 
-This repository contains `docker-compose.yml` file that provides virtual environment with 1.16 version of go language. For executing code you just need installed Docker on your local machine and run the following command:
-```docker-compose run app go {GO_COMMAND}```
+This repository contains `docker-compose.yml` file that provides virtual environment with 1.16 version of go language. For executing code you just need installed Docker on your local machine and run docker container.
