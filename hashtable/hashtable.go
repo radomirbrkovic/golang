@@ -21,8 +21,9 @@ func hash(k Key) int {
 	key := fmt.Sprintf("%s", k)
 	h := 0
 	for i := 0; i < len(key); i++ {
-		h = 31 * h + len(key[i])
+		h = 31 * h + int(key[i])
 	}
+	return h
 }
 
 // Put item with value v and key k into the hashtable
@@ -56,7 +57,7 @@ func (htValue *ValueHashTable) Get(k Key) Value {
 }
 
 // Size returns the number of the hashtable elements
-func (htValue *ValueHashTable) Size()  {
+func (htValue *ValueHashTable) Size() int {
 	htValue.lock.RLock()
 	defer htValue.lock.RUnlock()
 	return len(htValue.items)
