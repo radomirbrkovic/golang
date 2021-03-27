@@ -10,3 +10,5 @@ services:
     working_dir: /go/src
     tty: true 
     command: tail -f /dev/null
+    ports:
+      - 8080:8081
