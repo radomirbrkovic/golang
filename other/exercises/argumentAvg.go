@@ -18,9 +18,8 @@ func main()  {
 	count := 0
 
 	for i:= 1; i < len(arguments); i++ {
-		n, _ := strconv.ParseFloat(arguments[i], 64) 
-	
-		if n > 0 {
+		n, err := strconv.ParseFloat(arguments[i], 64) 
+		if err == nil {
 			sum += n	
 			count ++
 		}
