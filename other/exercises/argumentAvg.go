@@ -1,6 +1,4 @@
-/*
-	Create go program that calculate sum of all arguments from comand line  
-*/
+// Create program for calculating average number of all arguments from comand line
 package main
 
 import (
@@ -10,7 +8,6 @@ import (
 )
 
 func main()  {
-
 	arguments := os.Args
 	if len(os.Args) == 1 {
 		fmt.Println("Please give one or more numbers.")
@@ -18,13 +15,18 @@ func main()  {
 	}
 
 	var sum float64 
+	count := 0
+
 	for i:= 1; i < len(arguments); i++ {
 		n, _ := strconv.ParseFloat(arguments[i], 64) 
-		
-		sum += n
-	}
 	
-	fmt.Println("Sum is:", sum)
+		if n > 0 {
+			sum += n	
+			count ++
+		}
+		
+	}
 
+	fmt.Println("Average number is:", sum / float64(count))
 
 }
