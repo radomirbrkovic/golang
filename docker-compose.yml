@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     container_name: "go-app"
-    image: golang:1.6.1-alpine
+    image: golang:1.16.3-alpine
     environment:
       - PATH=$PATH:/usr/local/go/bin
     volumes:
