@@ -15,10 +15,6 @@ func (L *List) Insert(key interface{}) {
 		key: key,
 	}
 
-	if L.head != nil {
-		L.head.prev = list
-	}
-
 	L.head = list
 	head := L.head
 
@@ -27,6 +23,21 @@ func (L *List) Insert(key interface{}) {
 	}
 
 	L.tail = head
+
+}
+
+func (L *List) Remove(key interface{}) {
+	node := L.head
+	for node.next != nil {
+		if node.next.key == key {
+			if node.next != nil {
+				node.next = node.next.next
+			}
+			
+			break
+		}
+		node = node.next
+	}
 
 }
 
@@ -42,34 +53,4 @@ func (L *List) Display() {
 	}
 
 	fmt.Printf("\n")		
-}
-
-// Private function for printing list
-func Display(list *Node) {
-	for list != nil {
-		if list.next != nil {
-			fmt.Printf("%v -> ", list.key)
-		} else {
-			fmt.Printf("%v", list.key)
-		}
-		
-		list = list.next
-	}
-	fmt.Println()
-}
-
-func (L *List) Reverse() {
-	curr := L.head
-	var prev *Node
-	L.tail = L.head
-
-	for curr != nil {
-		next := curr.next
-		curr.next = prev
-		prev = curr
-		curr = next
-	}
-
-	L.head = prev
-	Display(L.head)
 }
