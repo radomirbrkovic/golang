@@ -9,9 +9,6 @@ import (
 	"strconv"
 )
 
-var DATA = make(map[int]bool)
-
-var signal chan struct{}
 
 func square(n int) int {
 	return n * n
@@ -37,14 +34,9 @@ func first(min, max int, out chan<- int) {
 
 func second(out chan<- int, in <-chan int) {
 	for x := range in {
-		_, ok := DATA[x]
-		if ok {
-			signal <- struct{}{}
-		} else {
-			fmt.Print(x, " ")
-			DATA[x] = true
-			out <- x
-		}
+		fmt.Print(x, " ")
+		out <- x
+		
 	}
 	fmt.Println()
 	close(out)
@@ -64,7 +56,6 @@ func main() {
 		return
 	}
 
-	signal = make(chan struct{})
 	A := make(chan int)
 	B := make(chan int)
 
