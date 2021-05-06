@@ -1,31 +1,38 @@
-// Example of using goroutines and channel in pipeline
-package main 
+/*
+	Create pipeline for summing square of int numbers in given range 
+*/
+package main
 
 import (
 	"fmt"
-	"math/rand"
 	"os"
 	"strconv"
-	"time"
 )
 
 var DATA = make(map[int]bool)
 
 var signal chan struct{}
 
-func random(min, max int) int {
-	return rand.Intn(max-min) + min
+func square(n int) int {
+	return n * n
 }
 
-func first(min, max int, out chan<- int)  {
-	for {
-		select {
-		case <-signal:
-			close(out)
-			return
-		case out <- random(min, max):
-		}
+func sum(in <-chan int) {
+	sum := 0
+	for x := range in {
+		sum += x
 	}
+	fmt.Printf("The sum of the squares is %d.\n", sum)
+}
+
+func first(min, max int, out chan<- int) {
+	
+	for i := min; i <= max; i ++ {
+		out <- square(i)	
+	}
+
+	close(out)
+
 }
 
 func second(out chan<- int, in <-chan int) {
@@ -43,14 +50,6 @@ func second(out chan<- int, in <-chan int) {
 	close(out)
 }
 
-func third(in <-chan int) {
-	sum := 0
-	for x := range in {
-		sum += x
-	}
-	fmt.Printf("The sum of the random numbers is %d.\n", sum)
-}
-
 func main() {
 	if len(os.Args) != 3 {
 		fmt.Println("Need two integer parameters!")
@@ -66,12 +65,13 @@ func main() {
 	}
 
 	signal = make(chan struct{})
-
-	rand.Seed(time.Now().UnixNano())
 	A := make(chan int)
 	B := make(chan int)
 
+	
 	go first(n1, n2, A)
 	go second(B, A)
-	third(B)
+
+	sum(B)
+	
 }
