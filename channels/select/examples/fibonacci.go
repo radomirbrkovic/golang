@@ -33,7 +33,7 @@ func main() {
 
 	go func (n int)  {
 		for i:= 0; i < n; i++ {
-			fmt.Println(<-c)
+			fmt.Printf("%d - %v \n", i+1, <-c)
 		}
 		quit <- 0
 	}(n)
