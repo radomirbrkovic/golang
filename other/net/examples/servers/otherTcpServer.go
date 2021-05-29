@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"string"
+	"strings"
 )
 
 func main()  {
@@ -46,7 +46,7 @@ func main()  {
 			return
 		}
 
-		if string.TrimSpace(string(buffer[0:n])) == "STOP" {
+		if strings.TrimSpace(string(buffer[0:n])) == "STOP" {
 			fmt.Println("Exiting TCP server!")
 			conn.Close()
 			return

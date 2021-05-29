@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"string"
+	"strings"
 	"time"
 )
 
@@ -40,7 +40,7 @@ func main()  {
 			return
 		}
 
-		if string.TrimSpace(string(netData)) == "STOP" {
+		if strings.TrimSpace(string(netData)) == "STOP" {
 			fmt.Println("Exiting TCP server!")
 			return
 		}
